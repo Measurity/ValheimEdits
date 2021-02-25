@@ -15,9 +15,6 @@ namespace ValheimEdits.Serialization
         private static Config instance;
         public static Config Instance => instance ??= new Config();
 
-        [Description("Default 61440 (60KB) per second")]
-        public int DataRateLimit { get; set; } = 61440;
-
         public bool WorkbenchRequiresRoof { get; set; } = true;
 
         [Description("If true, allows sleeping even if it is really inconvenient to character")]
@@ -40,7 +37,8 @@ namespace ValheimEdits.Serialization
                 reader.Read(); // Reads value from element.
                 if (!string.IsNullOrWhiteSpace(reader.Value))
                 {
-                    var convertFromString = TypeDescriptor.GetConverter(prop.PropertyType).ConvertFromString(reader.Value);
+                    var convertFromString =
+                        TypeDescriptor.GetConverter(prop.PropertyType).ConvertFromString(reader.Value);
                     prop.SetValue(this, convertFromString);
                 }
             }
