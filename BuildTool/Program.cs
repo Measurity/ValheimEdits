@@ -57,7 +57,7 @@ namespace BuildTool
             var configContent = File.ReadAllLines(unityDoorstopConfig).ToList();
             var requiredValues = new Dictionary<string, string>
             {
-                // {"dllSearchPathOverride", UnstrippedDllsFolderName},
+                {"dllSearchPathOverride", UnstrippedDllsFolderName},
                 {"targetAssembly", @"BepInEx\core\BepInEx.Preloader.dll"}
             };
             for (var i = 0; i < configContent.Count; i++)
@@ -136,7 +136,7 @@ namespace BuildTool
                 var fileName = Path.GetFileName(entry.FullName);
                 if (string.IsNullOrWhiteSpace(fileName)) continue;
                 
-                var targetFile = Path.Combine(game.ManagedDllsDir, fileName);
+                var targetFile = Path.Combine(targetDir, fileName);
                 entry.ExtractToFile(targetFile, true);
             }
         }
@@ -201,7 +201,7 @@ namespace BuildTool
 
         private static async Task EnsureBepInExAsync(string gameDir)
         {
-            if (File.Exists(Path.Combine(gameDir, "BepInEx", "core", "BepInEx.dll")))
+            if (File.Exists(Path.Combine(Utils.GeneratedOutputDir, "bepinex.zip")) && File.Exists(Path.Combine(gameDir, "BepInEx", "core", "BepInEx.dll")))
             {
                 Console.WriteLine("BepInEx is already installed.");
                 return;

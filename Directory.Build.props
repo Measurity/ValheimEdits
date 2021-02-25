@@ -1,5 +1,21 @@
 <Project>
     <PropertyGroup>
-        <LangVersion>9</LangVersion>
+        <SolutionDir Condition="'$(SolutionDir)' == ''">
+            $(MSBuildThisFileDirectory)
+        </SolutionDir>
+        <SolutionName Condition="'$(SolutionName)' == ''">
+            $([System.IO.Path]::GetFileNameWithoutExtension($([System.IO.Directory]::GetFiles("$(MSBuildThisFileDirectory)", "*.sln")[0])))
+        </SolutionName>
+        <ModName>$(SolutionName)</ModName>
+        <BuildDir>$(SolutionDir)BuildTool\bin\</BuildDir>
+        <BuildGenDir>$(BuildDir)generated_files\</BuildGenDir>
     </PropertyGroup>
+    <PropertyGroup>
+        <LangVersion>9</LangVersion>
+        <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <!-- Use shared assembly info for all projects. -->
+        <Compile Include="../AssemblyInfo.cs" />
+    </ItemGroup>
 </Project>

@@ -11,9 +11,7 @@
         <AppDesignerFolder>Properties</AppDesignerFolder>
         <RootNamespace>ValheimEdits.Tests</RootNamespace>
         <AssemblyName>ValheimEdits.Tests</AssemblyName>
-        <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
-        <LangVersion>9</LangVersion>
         <PlatformTarget>AnyCPU</PlatformTarget>
         <DebugType>pdbonly</DebugType>
         <Optimize>true</Optimize>
@@ -42,15 +40,18 @@
         <Compile Include="CommandParserTests.cs" />
         <Compile Include="ArrayUtilsTests.cs" />
         <Compile Include="ConfigTests.cs" />
-        <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\ValheimEdits\ValheimEdits.csproj">
+      <ProjectReference Include="..\BuildTool\BuildTool.csproj">
+        <Project>{2080bd2a-a6f1-4a0e-bd81-ca58dc667417}</Project>
+        <Name>BuildTool</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\Mod\Mod.csproj">
         <Project>{3b95eef7-4a97-4393-91a0-3626434f3631}</Project>
-        <Name>ValheimEdits</Name>
+        <Name>Mod</Name>
       </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
