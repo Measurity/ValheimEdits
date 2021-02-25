@@ -59,7 +59,7 @@
         <ItemGroup>
             <ModDlls Include="$(OutputPath)*.dll"/>
         </ItemGroup>
-        <Copy SourceFiles="@(ModDlls)" DestinationFolder="$(GameDir)BepInEx\plugins\$(MSBuildProjectName)\"/>
+        <Copy SourceFiles="@(ModDlls)" DestinationFolder="$(GameDir)BepInEx\plugins\$(ModName)\"/>
     </Target>
 
     <!-- Prepare game for modding -->
