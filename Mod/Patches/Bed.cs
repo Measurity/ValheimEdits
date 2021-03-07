@@ -7,9 +7,6 @@ using ValheimEdits.Utils;
 
 namespace ValheimEdits.Patches
 {
-    /// <summary>
-    ///     Changes hardcoded data rate limit to fix lag issues.
-    /// </summary>
     public class BedPatch
     {
         [HarmonyPatch(typeof(Bed), nameof(Bed.Interact))]

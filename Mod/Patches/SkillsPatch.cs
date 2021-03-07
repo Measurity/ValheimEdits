@@ -1,16 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using HarmonyLib;
+﻿using HarmonyLib;
 using UnityEngine;
 using ValheimEdits.Serialization;
-using ValheimEdits.Utils;
 
 namespace ValheimEdits.Patches
 {
-    /// <summary>
-    ///     Changes hardcoded data rate limit to fix lag issues.
-    /// </summary>
     public class SkillsPatch
     {
         [HarmonyPatch(typeof(Skills), nameof(Skills.OnDeath))]
