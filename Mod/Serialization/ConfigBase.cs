@@ -92,7 +92,6 @@ namespace ValheimEdits.Serialization
             fileName = GetFile(fileName);
             if (!File.Exists(fileName))
             {
-                Save(fileName);
                 return false;
             }
             
