@@ -9,8 +9,8 @@
         <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>ValheimEdits.Tests</RootNamespace>
-        <AssemblyName>ValheimEdits.Tests</AssemblyName>
+        <RootNamespace>$(ModName).Tests</RootNamespace>
+        <AssemblyName>$(ModName).Tests</AssemblyName>
         <FileAlignment>512</FileAlignment>
         <PlatformTarget>AnyCPU</PlatformTarget>
         <DebugType>pdbonly</DebugType>

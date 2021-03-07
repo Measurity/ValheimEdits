@@ -16,7 +16,7 @@ namespace ValheimEdits.Tests
                 Assert.IsTrue(Config.Instance.WorkbenchRequiresRoof);
                 Config.Instance.WorkbenchRequiresRoof = false;
                 Assert.IsFalse(Config.Instance.WorkbenchRequiresRoof);
-                Config.Instance.Save();
+                Config.Save();
                 Assert.IsFalse(Config.Instance.WorkbenchRequiresRoof);
                 Config.Instance.WorkbenchRequiresRoof = true;
                 Config.Load();

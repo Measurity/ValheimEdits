@@ -15,6 +15,14 @@ namespace ValheimEdits.Patches
         [HarmonyPatch(typeof(Bed), nameof(Bed.Interact))]
         public static class Interact
         {
+            private static readonly string[] canSleepCheckMethods =
+            {
+                nameof(Bed.CheckEnemies),
+                nameof(Bed.CheckExposure),
+                nameof(Bed.CheckFire),
+                nameof(Bed.CheckWet)
+            };
+
             public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
                 var list = instructions.ToList();
@@ -26,7 +34,7 @@ namespace ValheimEdits.Patches
                         {
                             if (list[i + 1].IsLdloc())
                             {
-                                if (Config.Instance.HoboSleeping && list[i + 2].IsMethod("CheckEnemies", "CheckExposure", "CheckFire", "CheckWet"))
+                                if (Config.Instance.HoboSleeping && list[i + 2].IsMethod(canSleepCheckMethods))
                                 {
                                     if (list[i + 3].IsJumpIfTrue())
                                     {
